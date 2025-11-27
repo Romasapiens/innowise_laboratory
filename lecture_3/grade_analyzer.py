@@ -117,10 +117,8 @@ def show_report(students: List[Dict[str, str | List[int]]]):
             students_with_grades += 1
             
             # Update max and min averages
-            if student_average > max_average:
-                max_average = student_average
-            if student_average < min_average:
-                min_average = student_average
+            max_average = max(max_average, student_average)
+            min_average = min(min_average, student_average)
                 
         except ZeroDivisionError:
             # Student has no grades
@@ -132,7 +130,6 @@ def show_report(students: List[Dict[str, str | List[int]]]):
     else:
         print("No students with grades to show report. Please add grades first.")
         
-
 def find_top_performer(students: List[Dict[str, str | List[int]]]):
     """
     Find and display the student with the highest average grade.
