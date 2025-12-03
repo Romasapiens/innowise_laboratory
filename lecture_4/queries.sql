@@ -60,10 +60,6 @@ CREATE INDEX IF NOT EXISTS idx_grades_grade ON grades(grade);
 -- Для ускорения группировки по предмету
 CREATE INDEX IF NOT EXISTS idx_grades_subject ON grades(subject);
 
--- Составные индексы для частых комбинаций условий
-CREATE INDEX IF NOT EXISTS idx_grades_student_grade ON grades(student_id, grade);
-CREATE INDEX IF NOT EXISTS idx_students_name_year ON students(full_name, birth_year);
-
 -- ЗАПРОСЫ
 
 -- Оценки Alice Johnson
